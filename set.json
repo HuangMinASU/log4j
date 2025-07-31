@@ -1,0 +1,60 @@
+编辑远程设置：
+
+打开 Command Palette（Ctrl+Shift+P 或 Cmd+Shift+P）。
+输入并选择“Preferences: Open Remote Settings (JSON)”，这会打开远程环境的 settings.json 文件。
+
+{
+    // Java configuration
+    "java.jdt.ls.java.home": "/root/jdk/jdk-17.0.12aa",  // 替换为你的JDK 17路径
+    "java.configuration.runtimes": [
+        {
+            "name": "JavaSE-17",
+            "path": "/root/jdk/jdk-17.0.12",
+            "default": true
+        }
+    ],
+    "java.debug.settings.hotCodeReplace": "auto",
+    // // 控制是否在项目根目录生成元数据文件
+    // "java.import.generatesMetadataFilesAtProjectRoot": true,  // 或 false, 根据需要设置
+
+    // // 控制文件资源管理器中隐藏的文件
+    // "files.exclude": {
+    //     "**/.classpath": true,
+    //     "**/.project": true,
+    //     "**/.settings/": true,
+    //     "**/.vscode/": true
+    // }
+    "java.configuration.updateBuildConfiguration": "interactive",
+
+    // Maven configuration
+    // "maven.executable.path": "/root/maven/apache-maven-3.9.11/bin/mvn",  // 确保替换为你的Maven安装路径
+    // "maven.terminal.useJavaHome": true,
+    // "java.compile.nullAnalysis.mode": "automatic"
+
+
+    // Maven 可执行文件的路径，确保 VSCode 调用正确的 Maven 版本
+    "maven.executable.path": "/root/maven/apache-maven-3.9.11/bin/mvn1",
+    
+    // 指定在终端运行 Maven 时是否使用 Java Home 的 Java 版本
+    "maven.terminal.useJavaHome": true,
+    
+    // 通过环境变量传递 JVM 参数，用于设置 Maven 的运行时选项，例如最大内存
+    "maven.terminal.customEnv": {
+        "MAVEN_OPTS": "-Xmx512m" // 设置最大堆内存为 512MB
+    },
+    
+    // 指定用户级别的 Maven settings.xml 文件路径，用于自定义 Maven 配置
+    "maven.settingsFile": "/root/maven/apache-maven-3.9.11/conf/settings.xml",
+    
+    // 指定全局的 Maven settings.xml 文件路径，影响所有用户，用于公司范围的配置
+    "maven.globalSettingsFile": "/root/maven/apache-maven-3.9.11/conf/settings.xml",
+    
+    // 预定义每次运行 Maven 时默认执行的目标，简化常用命令操作
+    "maven.defaultGoals": [
+        "clean",
+        "install"
+    ],
+    
+    // 启用后 Maven 在后台运行，提供更好的用户体验
+    "maven.terminal.runInBackground": true
+}
